@@ -8,6 +8,12 @@
 ## 📌 Project Overview
 This project analyzes the impact of store positions on FMCG sales volumes and demographics. The goal is to provide data-driven demand forecasting and inventory optimization insights based on historical placement data to maximize revenue.
 
+## Team Members
+Umar Shaikh -Team Lead
+Shreyash Thorawade -Member
+Shubham Kumar -Member
+
+
 ## 🗂️ Dataset Highlights
 The analysis is powered by the `Product Positioning.csv` dataset, evaluating key parameters such as:
 * **Product Position:** Aisle, End-cap, and Front of Store.

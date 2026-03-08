@@ -1,9 +1,6 @@
 # Strategic Product Placement Analysis 🛒📊
 **A Skill Wallet Mini-Project**
 
-### 🔗 [Click Here to View the Live Web Dashboard](PUT_YOUR_LIVE_WEBSITE_LINK_HERE)
-*(Note: Replace the link above with your actual GitHub Pages URL once your site is live!)*
-
 ### 📊 [Click Here to View the Direct Tableau Dashboard](https://public.tableau.com/views/Book1_17727354828350/Dashboard1?:language=en-GB&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---

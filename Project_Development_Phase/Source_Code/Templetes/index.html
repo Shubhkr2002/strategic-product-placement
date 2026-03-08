@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Product Placement | Skill Wallet</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --sidebar-bg: #111827;
+            --sidebar-hover: #1f2937;
+            --bg-color: #f3f4f6;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            color: var(--text-main);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100vh;
+            background-color: var(--sidebar-bg);
+            color: white;
+            padding-top: 24px;
+            position: fixed;
+            width: 260px;
+            z-index: 100;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            margin-bottom: 2rem;
+        }
+
+        .brand-logo i {
+            font-size: 1.8rem;
+            color: #3b82f6;
+            margin-right: 12px;
+        }
+
+        .brand-logo div {
+            line-height: 1.2;
+        }
+
+        .brand-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 1.5rem 24px 0.5rem;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            color: #d1d5db;
+            text-decoration: none;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar a i {
+            font-size: 1.1rem;
+            margin-right: 12px;
+            color: #9ca3af;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--sidebar-hover);
+            color: white;
+        }
+
+        .sidebar a:hover i {
+            color: white;
+        }
+
+        .sidebar a.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .sidebar a.active i {
+            color: #3b82f6;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            background-color: white;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .search-bar {
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            margin-left: 8px;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 30px 40px;
+            flex-grow: 1;
+        }
+
+        .badge-skillwallet {
+            background-color: #e0e7ff;
+            color: #4338ca;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        h2#main-title {
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin-bottom: 4px;
+            color: #111827;
+        }
+
+        /* KPI Cards */
+        .kpi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .kpi-icon.blue { background: #eff6ff; color: #3b82f6; }
+        .kpi-icon.green { background: #f0fdf4; color: #22c55e; }
+        .kpi-icon.purple { background: #faf5ff; color: #a855f7; }
+        .kpi-icon.orange { background: #fff7ed; color: #f97316; }
+
+        .kpi-details p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .kpi-details h4 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #111827;
+        }
+
+        /* Dashboard Container */
+        .dashboard-wrapper {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e5e7eb;
+            min-height: 850px;
+            overflow: hidden;
+            margin-top: 24px;
+        }
+
+        .view-section {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-primary {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 6px;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="brand-logo">
+            <i class="bi bi-wallet2"></i>
+            <div>
+                <div class="brand-title">Skill Wallet</div>
+                <div class="brand-subtitle">Mini Project</div>
+            </div>
+        </div>
+
+        <div class="nav-label">Analytics Menu</div>
+        <a onclick="showSection('dashboard')" id="nav-dashboard" class="active">
+            <i class="bi bi-grid-1x2-fill"></i>
+            Placement Dashboard
+        </a>
+
+        <a onclick="showSection('story')" id="nav-story">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+            Data Story
+        </a>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="top-navbar">
+            <div class="search-bar">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Search insights...">
+            </div>
+            <div class="user-profile">
+                <i class="bi bi-bell text-muted me-3" style="font-size: 1.2rem; cursor: pointer;"></i>
+                <div class="avatar">DA</div>
+                <span>Data Analyst</span>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <span class="badge-skillwallet"><i class="bi bi-check-circle-fill me-1"></i> Skill Wallet Project</span>
+                    <h2 id="main-title">Strategic Product Placement Analysis</h2>
+                    <p class="text-muted mb-0">
+                        Analyzing the impact of store positions on sales volume and demographics.
+                    </p>
+                </div>
+                <div>
+                    <button class="btn btn-primary">
+                        <i class="bi bi-download me-2"></i>Export Report
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-2">
+                <div class="col-md-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon blue"><i class="bi bi-box-seam"></i></div>
+                        <div class="kpi-details">
+                            <p>Total Products</p>
+                            <h4>1,000</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon green"><i class="bi bi-shop"></i></div>
+                        <div class="kpi-details">
+                            <p>Highest Traffic Zone</p>
+                            <h4>Front of Store</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon purple"><i class="bi bi-tags"></i></div>
+                        <div class="kpi-details">
+                            <p>Active Promotions</p>
+                            <h4>48%</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="kpi-card">
+                        <div class="kpi-icon orange"><i class="bi bi-graph-up-arrow"></i></div>
+                        <div class="kpi-details">
+                            <p>Avg. Sales Volume</p>
+                            <h4>1,984</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-wrapper">
+                <div id="dashboard" class="view-section active">
+                    <iframe
+                        src="https://public.tableau.com/views/Book1_17727354828350/Dashboard1?:showVizHome=no&:embed=true"
+                        width="100%"
+                        height="850"
+                        style="border:none;">
+                    </iframe>
+                </div>
+
+                <div id="story" class="view-section">
+                    <iframe
+                        src="https://public.tableau.com/views/Book1_17727354828350/Story1?:showVizHome=no&:embed=true"
+                        width="100%"
+                        height="850"
+                        style="border:none;">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Remove active class from all links
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add active class to clicked link
+            document.getElementById('nav-' + sectionId).classList.add('active');
+
+            // Update Header Title based on selection
+            const title = document.getElementById('main-title');
+            title.innerText =
+                sectionId === 'dashboard'
+                    ? 'Strategic Product Placement Analysis'
+                    : 'FMCG Strategic Data Story';
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
